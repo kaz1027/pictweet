@@ -50,5 +50,7 @@ test:
 production:
   <<: *default
   database: pictweet_production
-  username: pictweet
-  password: <%= ENV['PICTWEET_DATABASE_PASSWORD'] %>
+  # 53行目以降本番環境でmysqlに接続する際の設定を追加する
+  username: root            #rootに変更
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
